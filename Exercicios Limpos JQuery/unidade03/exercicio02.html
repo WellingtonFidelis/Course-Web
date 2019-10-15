@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title> 
+    </head>
+
+    <body>
+    	<nav>
+        	<a href="#">Brasil</a>
+            <a href="#">Argentina</a>
+            <a href="#">Uruguai</a>
+            <a href="#">Chile</a>
+            <a href="#">Colombia</a>
+        </nav>
+        
+        <a href="#">Paraguai</a>
+        
+		<!-- scripts -->
+        <script src="jquery-3.2.1.min.js"></script>
+        <script>    
+        	$( function() {
+				$("nav a:first").css("color","red");
+                $("nav a").css("text-decoration","none");
+                $("nav a:contains('Argentina')").css("text-decoration","none").css("color","green");
+                
+                /* Or
+                $("nav a").css("color","red").css("text-decoration","none");
+                */
+			});
+            alert("This pag countains " + $("nav a").length + " links");
+        </script>   
+                
+    </body>
+</html>

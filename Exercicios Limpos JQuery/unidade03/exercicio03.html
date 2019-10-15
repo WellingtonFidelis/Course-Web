@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+        
+        <style>
+			body { font-family:Arial, Helvetica, sans-serif; font-size:0.9em; }
+			li { padding:5px;margin-bottom:1px }
+			.vermelho { color:#F00 }
+			.verde { color:#096 }
+		</style>
+
+		<script src="jquery-3.2.1.min.js"></script>
+        <script>
+			$( function(e) {
+				$("li").css("background-color","#FF9"); //todos
+                $("li[class]").css("background-color","#FA5"); // apenas nas class
+                $("li.vermelho").css("background-color","#FA5"); // apenas nas class
+                $("li[id]").css("background-color","#CD5"); //apenas para as id
+                $("li[id][title]").css("background-color","#CCF"); //apenas para id com title
+                $("li[id='texto1']").css("background-color","#0B1"); // apenas para id com nome de texto1
+                $("li#texto1").css("background-color","#0B1"); // apenas para id com nome de texto1
+            });
+		</script>
+    </head>
+
+    <body>
+    	<ul>
+            <li class="vermelho">Curso HTML5 Essencial</li>
+            <li class="verde">Curso CSS3 Essencial</li>
+            <li id="texto1">Curso Javascript Essencial</li>
+            <li id="texto2" title="Esse Curso.">Curso jQuery Fundamental</li>             
+    	</ul>
+    </body>
+</html>
