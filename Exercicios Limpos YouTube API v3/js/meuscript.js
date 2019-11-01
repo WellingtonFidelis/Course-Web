@@ -27,8 +27,9 @@
                     imagem = item.snippet.thumbnails.medium.url;
                     titulo = item.snippet.title;
                     descricao = item.snippet.description;
-                    data_publicada = item.snippet.publishedAt;
-                    arquivo = '<li class="principal"> <div class="foto"><img src="' + imagem + '"/><div class="legenda"><h5>' + titulo + '</h5><p>Data: ' + data_publicada + '</p></div></div></li>';
+                    data_publicada = formatarData(item.snippet.publishedAt);
+                    videoId = item.snippet.resourceId.videoId;
+                    arquivo = '<li class="principal"> <a class="fancybox-media" href="https://www.youtube.com/watch?v=' + videoId + '"> <div class="foto"><img src="' + imagem + '"/><div class="legenda"><h5>' + titulo + '</h5><p>Data: ' + data_publicada + '</p></div></div></a> </li>';
                     $('div#janela ul').append(arquivo);
                 });
                 }
