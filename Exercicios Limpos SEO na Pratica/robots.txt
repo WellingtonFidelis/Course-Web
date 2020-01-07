@@ -1,0 +1,6 @@
+user-agent: *
+Disallow: /admin/
+Disallow: /_templates/
+Disallow: /_css/
+Disallow: /_img/
+Sitemap: http:
