@@ -5,6 +5,13 @@
         <title>Curso PHP FUNDAMENTAL</title>
     </head>
 
-    <body> 
+    <body>
+        <?php
+            $salada = array ("imagens/laranja.jpg", "imagens/maca.jpg", "imagens/abacate.jpg");
+            $fruta = $_GET["codigo"];
+            //echo $salada[$fruta];
+        ?>
+        
+        <img src="<?php echo $salada[$fruta]; ?>">
     </body>
 </html>

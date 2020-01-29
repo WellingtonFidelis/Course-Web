@@ -6,11 +6,12 @@
     </head>
 
     <body>
+        <!-- _GET get information in the url with super globals php-->
         
         <ul>
-            <li>Laranja</li>
-            <li>Maçã</li>
-            <li>Abacate</li>
+            <li><a href="destino.php?codigo=0">Laranja</a></li><!-- adding parameters to the links -->
+            <li><a href="destino.php?codigo=1">Maçã</a></li>
+            <li><a href="destino.php?codigo=2">Abacate</a></li>
         </ul>
     </body>
 </html>
