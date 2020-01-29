@@ -1,3 +1,12 @@
+<?php 
+    if (isset($_POST["formulario"])) { // is congigured the formulario
+        $nome = isset($_POST["nome"]) ? $_POST["nome"] : "Undefined";
+        $email = isset($_POST["email"]) ? $_POST["email"] : "Undefined";
+        echo "Meu nome : " . $nome . "<br>";
+        echo "Meu email : " . $email . "<br>";
+    }
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -10,18 +19,20 @@
 
     <body>
         <div class="container-sm">
+            <?php if (!isset($_POST["formulario"])) { ?>
             <div class="form-row">
                 <!--<form class="col-6" action="destino.php" method="get"> via URL-->
-                <form class="form-group col-md-3" action="destino.php" method="post">    
+                <form class="form-group col-md-3" action="formulario2.php" method="post">    
                     <label for="nome">Nome Completo</label>
                     <input type="text" name="nome" id="nome">
 
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email">
 
-                    <input type="submit" value="Enviar Cadastro">
+                    <input type="submit" name="formulario" value="Enviar Cadastro">
                 </form>
-            </div>    
+            </div> 
+            <?php } ?>
         </div>
     </body>
 </html>
