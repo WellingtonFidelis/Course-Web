@@ -5,7 +5,7 @@
         $.get("https://www.googleapis.com/youtube/v3/channels",{
             part: 'contentDetails',
             forUsername: nomeCanal,
-            key: 'AIzaSyBfF--i85Gtzs_U43aHk4sqz7R7HWqx7FI'},
+            key: 'AIzaSyBfF--i85Gtzs_U43aHk4sqz7R7HWqx'},
              function(data) {
             upload_id = data.items[0].contentDetails.relatedPlaylists.uploads;
             pegarVideos(upload_id);
