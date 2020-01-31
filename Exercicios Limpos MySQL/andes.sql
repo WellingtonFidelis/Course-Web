@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 50539
  Source Host           : localhost
- Source Database       : andes-teste
+ Source Database       : andes
 
  Target Server Type    : MySQL
  Target Server Version : 50539
  File Encoding         : utf-8
 
- Date: 10/25/2017 23:04:13 PM
+ Date: 02/20/2015 16:03:20 PM
 */
 
 SET NAMES utf8;
