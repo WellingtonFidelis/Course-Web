@@ -1,4 +1,16 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../conexao/conexao.php"); 
+//catch the connection of other folder
+?>
+
+<?php
+    // set locale from Brazil.
+    setlocale(LC_ALL, 'pt_BR');
+    // consult into DB
+    $produtos = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
+    $produtos .= "FROM produtos";
+    $resultado = mysqli_query($conecta, $produtos);
+    if (!$resultado) { die("Falha na consulta");}
+?>
 
 <!doctype html>
 <html>
@@ -8,25 +20,34 @@
         
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
+        <link href="_css/produtos.css" rel="stylesheet">
     </head>
-
+    
     <body>
-        <header>
-            <div id="header_central">
-                <img src="assets/logo_andes.gif">
-                <img src="assets/text_bnwcoffee.gif">
+        <?php
+            // catch the header of another folder only one time
+            include_once("_incluir/header.php");
+        ?>
+        <main>
+            <div id="listagem_produtos">
+                <?php // estructure for while
+                    while($linha = mysqli_fetch_assoc($resultado)) {
+                ?>
+                <ul>
+                    <li class="imagem"><img src="<?php echo $linha["imagempequena"] ?>"></li> <!-- To catch imagem form DB-->
+                    <li><h3><?php echo $linha["nomeproduto"] ?></h3></li>
+                    <li>Tempo de  entrega: <?php echo $linha["tempoentrega"] ?></li>
+                    <li>Pre&ccedil;o Unit&aacute;rio: <?php echo $linha["precounitario"] // money_format is undefined?></li>
+                </ul>
+                <?php
+                    } // end while
+                ?>
             </div>
-        </header>
-        
-        <main>  
-            
         </main>
-
-        <footer>
-            <div id="footer_central">
-                <p>ANDES &eacute; uma empresa fict&iacute;cia, usada para o curso PHP Integra&ccedil;&atilde;o com MySQL.</p>
-            </div>
-        </footer>
+        <?php
+            // catch the footer of another folder only one time
+            include_once("_incluir/footer.php");
+        ?>
     </body>
 </html>
 
