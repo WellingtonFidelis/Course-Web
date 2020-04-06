@@ -20,6 +20,7 @@ main div#listagem_produtos li {
 main div#listagem_produtos li.imagem {
     float:left;
     margin-right: 10px;
+    border-radius: 6px;   
 }
 
 main div#listagem_produtos li h3 {

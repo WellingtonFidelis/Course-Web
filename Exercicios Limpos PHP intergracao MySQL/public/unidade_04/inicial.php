@@ -37,7 +37,7 @@
                     <li class="imagem"><img src="<?php echo $linha["imagempequena"] ?>"></li> <!-- To catch imagem form DB-->
                     <li><h3><?php echo $linha["nomeproduto"] ?></h3></li>
                     <li>Tempo de  entrega: <?php echo $linha["tempoentrega"] ?></li>
-                    <li>Pre&ccedil;o Unit&aacute;rio: <?php echo $linha["precounitario"] // money_format is undefined?></li>
+                    <li>Pre&ccedil;o Unit&aacute;rio: <?php echo $linha["precounitario"]?></li>
                 </ul>
                 <?php
                     } // end while
