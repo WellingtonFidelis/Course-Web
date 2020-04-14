@@ -1,4 +1,11 @@
 <?php require_once("../../conexao/conexao.php"); ?>
+<?php 
+    // iniciar a sessão
+    session_start();
+
+    // criar uma variavel de sessão
+    $_SESSION["usuario"] = "Well";
+?>
 <!doctype html>
 <html>
     <head>
@@ -18,7 +25,13 @@
         </header>
         
         <main>
-
+            <?php
+                   echo $_SESSION["usuario"]; 
+            ?>
+            <p>
+                <a href="pagina2.php">Page 2</a>
+            </p>
+            
         </main>
 
         <footer>

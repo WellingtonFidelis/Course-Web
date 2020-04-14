@@ -26,13 +26,11 @@
         
         <main>  
             <?php
-                if (isset($_SESSION["usuario"])) {
-                    echo $_SESSION["usuario"]; 
-                }
+                // excluíndo a variable of section
+                unset($_SESSION["usuario"]);
+                // or destroy all variable os section
+                // session_destroy($_SESSION["usuario"]);
             ?>
-            <p>
-                <a href="logout.php">Logout</a>
-            </p>
         </main>
 
         <footer>
