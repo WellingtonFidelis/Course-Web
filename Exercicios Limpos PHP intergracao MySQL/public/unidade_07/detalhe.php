@@ -1,5 +1,14 @@
 <?php require_once("../../conexao/conexao.php"); ?>
 <?php
+    //adicionando a variavel de sessão
+    session_start();
+
+    // protegendo a page
+    if ( !isset($_SESSION["user_portal"]) ) {
+        header("location:login.php");
+        break;
+    }
+
     if ( isset($_GET["codigo"]) ) {
         $produto_id = $_GET["codigo"];
     } else {

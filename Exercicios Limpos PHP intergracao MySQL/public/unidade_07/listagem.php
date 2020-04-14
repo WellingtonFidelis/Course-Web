@@ -3,6 +3,14 @@
 <?php
     // Determinar localidade BR
     setlocale(LC_ALL, 'pt_BR');
+    
+    // adicionando a variavel de sessão
+    session_start();
+
+    // protegendo a page
+    if ( !isset($_SESSION["user_portal"]) ) {
+        header("location:login.php");
+    }
 
     // Consulta ao banco de dados
     $produtos = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
