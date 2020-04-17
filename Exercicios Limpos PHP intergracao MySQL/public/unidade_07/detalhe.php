@@ -6,7 +6,6 @@
     // protegendo a page
     if ( !isset($_SESSION["user_portal"]) ) {
         header("location:login.php");
-        break;
     }
 
     if ( isset($_GET["codigo"]) ) {

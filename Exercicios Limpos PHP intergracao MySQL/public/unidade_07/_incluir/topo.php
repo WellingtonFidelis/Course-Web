@@ -20,7 +20,7 @@
         ?>
         <div id="header_saudacao">
             <h5>
-                Bem vindo, <?php echo $nome ?>
+                Bem vindo, <?php echo $nome ?> - <a href="sair.php">Sair</a>
             </h5>
         </div>
         <?php
