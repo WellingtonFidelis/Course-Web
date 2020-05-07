@@ -1,6 +1,28 @@
 <?php require_once("../../conexao/conexao.php"); ?>
 
 <?php 
+    // inserção no DB
+    if (isset($_POST["nometransportadora"])) {
+        $nome        = utf8_decode($_POST["nometransportadora"]);
+        $endereco    = utf8_decode($_POST["endereco"]);
+        $cidade      = utf8_decode($_POST["cidade"]);
+        $estado      = utf8_decode($_POST["estados"]);
+        $cep         = utf8_decode($_POST["cep"]);
+        $cnpj        = utf8_decode($_POST["cnpj"]);
+        $telefone    = utf8_decode($_POST["telefone"]);
+        
+        $inserir     = "INSERT INTO transportadoras ";
+        $inserir    .= "(nometransportadora, endereco, telefone, cidade, estadoID, cep, cnpj) ";
+        $inserir    .= "VALUES ";
+        $inserir    .= "('$nome','$endereco','$telefone','$cidade',$estado,'$cep','$cnpj') ";
+        
+        $operacao_inserir = mysqli_query ($conecta, $inserir);
+        if (!$operacao_inserir) {
+            die("Error in DB!");
+        }
+        
+    }
+    //seleção de estados
     $select = "SELECT estadoID, nome ";
     $select .= "FROM estados ";
     $lista_estados = mysqli_query($conecta, $select);
@@ -35,7 +57,9 @@
                         <?php 
                             while ($linha = mysqli_fetch_assoc($lista_estados)) {
                         ?>
-                        <option value=""><?php echo utf8_encode($linha["nome"]) ?></option>
+                            <option value="<?php echo $linha["estadoID"]; ?>">
+                                <?php echo utf8_encode($linha["nome"]); ?>
+                            </option>
                         <?php 
                             }
                         ?>
