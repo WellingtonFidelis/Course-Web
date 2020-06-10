@@ -1,6 +1,42 @@
 <?php require_once("../../conexao/conexao.php"); ?>
 
 <?php 
+    
+    if ( isset($_POST["nometransportadora"]) ) {
+        
+        $nometransportadora = utf8_decode($_POST["nometransportadora"]);
+        $endereco = utf8_decode($_POST["endereco"]);
+        $cidade = utf8_decode($_POST["cidade"]);
+        $estado = $_POST["estados"];
+        $cep = $_POST["cep"];
+        $cnpj = $_POST["cnpj"];
+        $telefone = $_POST["telefone"];
+        $tID = $_POST["transpotadoraID"];
+        
+        //objeto to update
+        
+        $alterar = "UPDATE transportadoras ";
+        $alterar .= "SET ";
+        $alterar .= "nometransportadora = '{$nometransportadora}', ";
+        $alterar .= "endereco = '{$endereco}', ";
+        $alterar .= "cidade = '{$cidade}', ";
+        $alterar .= "estadoID = '{$estado}', ";
+        $alterar .= "cep = '{$cep}', ";
+        $alterar .= "cnpj = '{$cnpj}', ";
+        $alterar .= "telefone = '{$telefone}' ";
+        $alterar .= "WHERE transportadoraID = {$tID} ;";
+        
+        // run query
+        $operacao_alterar = mysqli_query($conecta, $alterar);    
+        
+        if (!$operacao_alterar) {
+            die("Erro na alteração");
+        } else {
+            header("location:listagem.php");
+        }
+        
+    }
+        
     // Consulta no BD
     $transportadora  = "SELECT * ";
     $transportadora .= "FROM transportadoras ";
@@ -63,7 +99,7 @@
                                $estado_principal = $linha["estadoID"];
                                if ($meu_estado == $estado_principal) {
                         ?>
-                            <option value="<?php echo $linha[estadoID]; ?>" selected>
+                            <option value="<?php echo $linha["estadoID"]; ?>" selected>
                                 <?php 
                                     echo utf8_encode($linha["nome"]);
                                 ?>
@@ -71,7 +107,7 @@
                             <?php
                                } else {
                             ?>
-                            <option value="<?php echo $linha[estadoID]; ?>">
+                            <option value="<?php echo $linha["estadoID"]; ?>">
                                 <?php 
                                     echo utf8_encode($linha["nome"]);
                                 ?>
@@ -87,6 +123,9 @@
                     <input type="text" value="<?php echo utf8_encode($info_transportadora["telefone"]) ?>" name="telefone" id="telefone">
                     <label for="cnpj">CNPJ</label>
                     <input type="text" value="<?php echo utf8_encode($info_transportadora["cnpj"]) ?>" name="cnpj" id="cnpj">
+                    
+                    
+                    <input type="hidden" name="transpotadoraID" value="<?php echo $info_transportadora["transportadoraID"] ?>">
                     
                     <input type="submit" value="Confirmar">
                     
