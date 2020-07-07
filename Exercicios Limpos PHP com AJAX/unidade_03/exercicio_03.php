@@ -7,20 +7,19 @@
 
     <body>
         <div id="nome"></div>
+        <div id="menssagem"></div>
 
         <script src="jquery.js"></script>
         <script>
             $.ajax({
                 url:'nome.php',
-            }).then(sucesso, falha);
-
-            function sucesso (valor) {
+            }).done(function(valor) {
                 $('div#nome').html(valor);
-            }
-
-            function falha () {
-                $('div#nome').html("Falha no carregamento.")
-            }
+            }).fail(function(valor){
+                $('div#nome').html('Falha no carregamento.');
+            }).always(function(){
+                $('div#menssagem').html('Envio mesmo se der erro ou não.');
+            });
         </script>
     </body>
 </html>
