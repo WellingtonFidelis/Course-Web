@@ -1,0 +1,6 @@
+{
+  "terminal.integrated.fontSize": 9,
+  "[less]": {
+    "editor.suggest.insertMode": "replace"
+  }
+}
