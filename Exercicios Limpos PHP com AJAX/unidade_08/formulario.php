@@ -61,6 +61,48 @@
         
         <script src="jquery.js"></script>
         <script>
+            $('form#formulario_transportadora').submit(function(e){
+                // previnir que, caso tenha uma action no form ao clicar em submit não
+                // seja enviado nada sem entrar nesse código
+                e.preventDefault();
+                // alert('Teste');
+                var form = $(this);
+                // alert(form.serialize());
+                var retorno = insertForm(form);
+            });
+
+            function insertForm (data) {
+                $.ajax({
+                    // method para inserir
+                    type:'POST',
+                    // dados para inserir
+                    data: data.serialize(),
+                    // local para inserir
+                    url: 'inserir_transportadora.php',
+                    // não vai ser assincrona
+                    async: false
+                }).then( success, fail);
+
+                function success (data) {
+                    //console.log(data);
+                    $sucesso = $.parseJSON(data)['sucesso'];
+                    $mensagem = $.parseJSON(data)['mensagem'];
+
+                    $('div#mensagem').show(1000);
+
+                    if ( $sucesso ) {
+                        $('#mensagem p').html($mensagem);
+                        //$('div#mensagem').hide(50000);
+                    } else {
+                        $('#mensagem p').html($mensagem);
+                        //$('div#mensagem').hide(50000);
+                    }
+                }
+
+                function fail () {
+                    console.log('Error AJAX.')
+                }
+            }
         </script>
     </body>
 </html>
