@@ -32,17 +32,50 @@
                 <ul>
                     <li><?php echo utf8_encode($linha["nometransportadora"]) ?></li>
                     <li><?php echo utf8_encode($linha["cidade"]) ?></li>
-                    <li><a href="" class="excluir">Excluir</a></li>
+                    <li><a href="" class="excluir" title="<?php echo $linha["transportadoraID"]?>">Excluir</a></li>
                 </ul>
                 <?php
                     }
                 ?>
             </div>
+            <div id="mensagem">
+                <p></p>
+             </div>
         </main>
 
         
         <script src="jquery.js"></script>
         <script>
+            $('#janela_transportadoras ul li a.excluir').click(function (e) {
+                e.preventDefault();
+                //console.log($(this).parent().parent());
+                //$(this).parent().parent().fadeOut();
+                let id = $(this).attr('title');
+                let element = $(this).parent().parent();
+                //console.log(id);
+                $.ajax({
+                    type: 'POST',
+                    data: 'transportadoraID=' + id,
+                    url: 'exclusao.php',
+                    async: false,
+                }).done(function (data) {
+                    $sucesso = $.parseJSON(data)['sucesso'];
+                    //$mensagem = $.parseJSON(data)['mensagem'];
+
+                    if ( $sucesso ) {
+                        //$('#mensagem p').html($mensagem);
+                        $(element).fadeOut();
+                    } else {
+                        //$('#mensagem p').html($mensagem);
+                        console.log('Error na exclusão.');
+                    }
+                }).fail(function () {
+                    //$('#mensagem p').html('Error on system, call to administrator.');
+                    console.log('Error on system, call to administrator.');
+                }).always(function () {
+                    //$('#mensagem').css('display', 'block');
+                });
+            });
         </script>
     </body>
 </html>

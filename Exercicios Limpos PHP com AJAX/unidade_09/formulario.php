@@ -96,7 +96,25 @@
             });
             
             function alterarFormulario(dados) {
+                $.ajax({
+                    type: 'POST',
+                    data: dados.serialize(),
+                    url: 'alterar_transportadora.php',
+                    async: false,
+                }).done(function (data) {
+                    $sucesso = $.parseJSON(data)['sucesso'];
+                    $mensagem = $.parseJSON(data)['mensagem'];
 
+                    if ( $sucesso ) {
+                        $('#mensagem p').html($mensagem);
+                    } else {
+                        $('#mensagem p').html($mensagem);
+                    }
+                }).fail(function () {
+                    $('#mensagem p').html('Error on system, call to administrator.');
+                }).always(function () {
+                    $('#mensagem').css('display', 'block');
+                });
             }
         </script>
     </body>
