@@ -9,6 +9,18 @@
 
         <script src="_js/jquery.js"></script>
         <script>
+        function doWeather () {
+                $.ajax({
+                    type: 'GET',
+                    url: `http://api.openweathermap.org/data/2.5/weather?q=Sao+Paulo,br&units=metric&lang=pt`,
+                    async: false
+                }).done(function (data) {
+                    console.log(data);
+                }).fail(function(){
+                    console.log('Erro response');
+                });
+            }
+        doWeather();
         </script>
     </body>
 </html>
