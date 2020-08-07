@@ -1,29 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso HTML5 Avançado</title>
-        
-        <style>
-			.grafico {
-				width:500px;margin:0 auto
-			}
-			
-			svg {
-				background-image:url(imagens/background_grafico.png);
-				background-repeat:no-repeat;
-			}		
-		</style>
-        
-    </head>
-    
-    <body>
-	
-    	<div class="grafico">
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="490" height="370" >
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso HTML5 Avançado</title>
 
-            </svg>
-        </div>
-    
-	</body>
+    <style>
+      .grafico {
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      svg {
+        background-image: url(imagens/background_grafico.png);
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grafico">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        width="490"
+        height="370"
+      >
+        <line
+          x1="91"
+          y1="323"
+          x2="91"
+          y2="150"
+          style="stroke: red; stroke-width: 50;"
+        ></line>
+        <line
+          x1="165"
+          y1="323"
+          x2="165"
+          y2="170"
+          style="stroke: blueviolet; stroke-width: 50;"
+        ></line>
+        <line
+          x1="240"
+          y1="323"
+          x2="240"
+          y2="100"
+          style="stroke: pink; stroke-width: 50;"
+        ></line>
+      </svg>
+    </div>
+  </body>
 </html>
