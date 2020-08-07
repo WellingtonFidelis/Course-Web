@@ -1,12 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso HTML5 Avançado</title>
-        
-    </head>
-    
-    <body>
-	
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso HTML5 Avançado</title>
+
+    <script>
+      function draw() {
+        let canvas = document.querySelector('#myScreen');
+        if (canvas.getContext) {
+          let rect = canvas.getContext('2d');
+          rect.fillStyle = 'blue';
+          rect.fillRect(50, 50, 400, 400);
+        }
+      }
+
+      window.onload = draw;
+    </script>
+  </head>
+
+  <body>
+    <canvas id="myScreen" height="400" width="500"></canvas>
+  </body>
 </html>

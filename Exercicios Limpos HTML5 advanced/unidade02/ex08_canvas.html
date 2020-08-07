@@ -1,33 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso HTML5 Avançado</title>
-        
-        <style>
-			#minhaTela {
-				background:url(imagens/background_grafico.png) no-repeat;
-			}
-		</style>
-        
-        <script>
-			function desenhar() {
-				var canvas=document.querySelector("#minhaTela");
-				if ( canvas.getContext ) {
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso HTML5 Avançado</title>
 
-				}
-			}
-			
-			window.onload = desenhar;
-		</script>
-        
-    </head>
-    
-    <body>
-	
-		<canvas id="minhaTela" width="490" height="370">
-        
-        </canvas>
-    
-	</body>
+    <style>
+      #minhaTela {
+        background: url(imagens/background_grafico.png) no-repeat;
+      }
+    </style>
+
+    <script>
+      function desenhar() {
+        var canvas = document.querySelector('#minhaTela');
+        if (canvas.getContext) {
+          var line = canvas.getContext('2d');
+          line.lineWidth = 5;
+          line.strokeStyle = 'blue';
+          line.moveTo(100, 200);
+          line.lineTo(170, 100);
+          line.lineTo(240, 150);
+          line.lineTo(310, 120);
+
+          line.stroke();
+        }
+      }
+
+      window.onload = desenhar;
+    </script>
+  </head>
+
+  <body>
+    <canvas id="minhaTela" width="490" height="370"> </canvas>
+  </body>
 </html>

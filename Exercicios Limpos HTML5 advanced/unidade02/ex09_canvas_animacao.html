@@ -1,15 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso HTML5 Avançado</title>
-        
-        <script src="cake.js"></script>     
-        <script>
-			
-		</script>
-    </head>
-    
-    <body>
-	</body>    
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curso HTML5 Avançado</title>
+
+    <script src="cake.js"></script>
+    <script>
+      function draw() {
+        let canvas = new Canvas(document.body, 600, 400);
+        let myCircle = new Circle(100, {
+          id: 'myCircle',
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          stroke: 'blue',
+          strokeWidth: 10,
+          endAngle: Math.PI * 2,
+        });
+
+        myCircle.addFrameListener(function (time, dateTime) {
+          this.scale = Math.sin(time / 500);
+        });
+
+        canvas.append(myCircle);
+      }
+      window.onload = draw;
+    </script>
+  </head>
+
+  <body></body>
 </html>
